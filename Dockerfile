@@ -10,11 +10,6 @@ RUN apt-get update
 RUN echo y | apt install curl openjdk-8-jdk git make automake autoconf libtool unzip vim-common clang nuget mono-xbuild referenceassemblies-pcl lib32stdc++6 lib32z1 libzip4
 
 RUN mkdir /sources
-RUN cd /sources && git clone https://github.com/xamarin/xamarin-android.git
-RUN cd /sources/xamarin-android && git submodule init
-RUN cd /sources/xamarin-android && git submodule update external/mono
-RUN cd /sources/xamarin-android/external/mono && git submodule init
-RUN cd /sources/xamarin-android/external/mono && git submodule update external/referencesource
-RUN cd /sources/xamarin-android/external/mono && git submodule update --init --recursive
+RUN cd /sources && git clone --recursive --depth 1 https://github.com/xamarin/xamarin-android.git
 RUN cd /sources/xamarin-android && make prepare
 RUN cd /sources/xamarin-android && make
