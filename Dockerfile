@@ -7,7 +7,7 @@ RUN echo "deb http://download.mono-project.com/repo/debian wheezy main" | tee /e
 RUN echo "deb http://download.mono-project.com/repo/debian alpha main" | tee /etc/apt/sources.list.d/mono-xamarin-alpha.list
 RUN apt-get update
 
-RUN echo y | apt install curl openjdk-8-jdk git make automake autoconf libtool unzip vim-common clang nuget mono-xbuild referenceassemblies-pcl lib32stdc++6 lib32z1 libzip4 lsb-core
+RUN echo y | apt install curl openjdk-8-jdk git make automake autoconf libtool unzip vim-common clang nuget mono-xbuild referenceassemblies-pcl lib32stdc++6 lib32z1 libzip4 lsb-core sudo
 
 RUN mkdir /sources
 RUN cd /sources && git clone --recursive --depth 1 https://github.com/xamarin/xamarin-android.git
