@@ -10,5 +10,5 @@ RUN apt-get update && apt-get -y install curl openjdk-8-jdk git make automake au
 
 RUN mkdir /sources
 RUN cd /sources && git clone --recursive --depth 1 https://github.com/xamarin/xamarin-android.git
-RUN cd /sources/xamarin-android && make prepare
+RUN cd /sources/xamarin-android && yes | make prepare
 RUN cd /sources/xamarin-android && make
